@@ -1,0 +1,308 @@
+/* Global defaults ----------------------- */
+* {
+    xpadding: 0;
+    xmargin: 0;
+}
+
+body {
+    font-family: Open Sans, sans-serif;
+}
+
+a, a:visited {
+    color: blue;
+    padding: 5px;
+}
+
+h1 {font-size: 1.5em;}
+h2 {font-size: 1.25em;}
+h3 {font-size: 1.1em;}
+
+/* Main Gameplay Elements ----------------------- */
+#moves_list a {
+    display: block;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+#moves_list a:hover {
+    color: #02c1fd;
+    background-color: #eee;
+}
+
+#moves_list a.selected {
+    color: #02c1fd;
+    background-color: #ddd;
+}
+
+#moves_list a.completed {
+    font-style: italic;
+    color: #333;
+}
+
+#moves_list a.completed::after {
+    content: ' - completed';
+}
+
+#wrapper {
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.col {
+    margin: 1em;
+    flex: 1 0 45%;
+}
+
+.col:first-of-type {
+    flex: 1 0 30%;
+}
+
+
+#notes {
+    padding: 1em;
+    background-color: aliceblue;
+}
+
+#video_toggle {
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+    background: url(images/icon_expand.png);
+}
+
+#video_toggle.large {
+    background: url(images/icon_collapse.png);
+}
+
+#videoNote iframe {
+    margin-right: 10px;
+    width: 350px;
+    height: 197px;
+}
+
+#videoNote.large iframe {
+    width: 450px;
+    height: 297px; 
+}
+
+
+#linkNote p {display: inline-block;}
+
+
+#position_wrapper * {margin: 0.3em 0;}
+
+#position_wrapper p:nth-of-type(1) {
+    font-style: italic;
+}
+
+
+/* Generic button styles */
+.button {
+    color: #efefef;
+    background-color: #777;
+    padding: 0.5em 0.5em;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    margin: 5px;
+}
+
+/* Submit Button ----------------------- */
+#submit {
+    margin-top: 1em;
+    border-radius: 20px;
+    border: 3px solid #24b662;
+    color: #fff;
+    background: #2ECC71;
+    cursor: pointer;
+    padding: 10px 30px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 1.1em;
+    outline: none;
+}
+
+#submit:not(.disabled):hover {
+    background: #24b662;
+}
+
+#submit.disabled {
+    border: 3px solid #9c9c9c;
+    background: #bbb;
+    cursor: no-drop;
+}
+
+.restart {
+    font-style: italic;
+    color: #75ff75;
+}
+
+/* Bottom of page ----------------------- */
+#history {
+    background-color: #ddf3dd;
+    padding: 1em;
+    font-size: 0.9em;
+}
+
+#bottom_nav {
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+#bottom_nav > div {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
+
+
+
+/* AI Settings & Range slider ----------------------- */
+
+
+.slidecontainer {display: none;}
+
+
+#AIoffense:checked ~ .slidecontainer, #AIdefense:checked ~ .slidecontainer {
+    display: flex;
+}
+
+
+.slidecontainer {
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    height: 0.5em;
+    background: #d3d3d3;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */ 
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 0.8em;
+    height: 0.8em;
+    background: #a70404;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 0.8em;
+    height: 0.8em;
+    background: #a70404;
+    cursor: pointer;
+}
+
+.ai_wrapper:last-child .slider::-webkit-slider-thumb {
+    background: #00cab7;
+}
+
+
+
+
+/* Footer ----------------------- */
+#footer p {
+    font-size: 0.8em;
+}
+
+#footer a {
+    padding: 0;
+}
+
+/* Popup/Notificaion UI elements ----------------------- */
+
+
+#popup_small .inner  {
+    width: 30em;
+    height: 20em;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 2em;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.cover {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Notification Popup at top of screen ----------------------- */
+#notification {
+    width: 100%;
+    color: #fff;
+    position: fixed;
+    padding: 1em;
+    top: 0;
+    left: 0;
+    background: blueviolet;
+    text-align: center;
+    opacity: 0;
+    display: none;
+}
+
+#notification.bad {
+    background-color: red;
+}
+#notification.good {
+    background-color: green;
+}
+
+#notification p, #notification h3 { margin: 0.3em 0 ;}
+
+
+/* Media Queries ----------------------- */
+
+@media screen and (max-width: 800px) {
+    
+    #wrapper {
+        flex-wrap: wrap;
+    }
+    
+    .col {
+        margin: 0 0 1em 0;
+        flex: 0 1 100%;
+    }
+    
+    .top_header {margin: 0;}
+    
+    #bottom_nav {
+        justify-content: center;
+    }
+    
+}
