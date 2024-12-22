@@ -306,3 +306,13 @@ h3 {font-size: 1.1em;}
     }
     
 }
+
+.top_header {
+    text-align: center; /* Centers the content horizontally */
+}
+
+.center_logo {
+    display: block; /* Ensures the image behaves like a block element */
+    margin: 0 auto; /* Centers the image horizontally */
+    height: 100px; /* Adjust the height as needed */
+}
